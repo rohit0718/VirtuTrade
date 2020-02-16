@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block nav %}
+    <h1 class="brand"><a href="/"><span class="green">Virtu</span><span class="red">Trade</span></a></h1>
+    <ul>
+      <li><a href="/quote">Chart</a></li>
+      <li><a href="/buy">Buy</a></li>
+      <li><a href="/history">History</a></li>
+    </ul>
+{% endblock %}
+
+{% block title %}
+    Sell
+{% endblock %}
+
+{% block main %}
+    <form action="/sell" method="post">
+        <div class="form-group">
+            <select autocomplete="off" autofocus class="form-control" name="symbol" placeholder="Symbol">
+              <option selected disabled value = "">Symbol</option>
+              {% for row in rows %}
+                <option>{{ row[0] }}</option>
+              {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <input autocomplete="off" class="form-control" name="shares" placeholder="Shares" type="number">
+        </div>
+        <button class="btn btn-primary" type="submit">Sell</button>
+    </form>
+{% endblock %}

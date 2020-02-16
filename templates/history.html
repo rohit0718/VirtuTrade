@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block nav %}
+    <h1 class="brand"><a href="/"><span class="green">Virtu</span><span class="red">Trade</span></a></h1>
+    <ul>
+      <li><a href="/quote">Chart</a></li>
+      <li><a href="/buy">Buy</a></li>
+      <li><a href="/sell">Sell</a></li>
+    </ul>
+{% endblock %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+      <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope = "col">Symbol</th>
+            <th scope = "col">Shares</th>
+            <th scope = "col">Price</th>
+            <th scope = "col">Transacted</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for row in rows %}
+            <tr>
+              {% for item in row %}
+                <td>{{ item }}</td>
+              {% endfor %}
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+{% endblock %}
